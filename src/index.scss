@@ -26,3 +26,7 @@
   --main-color: #d00000; 
   --main-dark: #0c0f0a;
 }
+
+.default-primary{
+  background-color: var(--main-color) !important;
+}

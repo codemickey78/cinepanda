@@ -1,10 +1,7 @@
-import "../pages.scss";
+import { AuthForm } from "../../components/index";
+
 const Login = () => {
-  return (
-    <div className="login-main">
-      <div className="login-sub"></div>
-    </div>
-  );
+  return <AuthForm authType="login" />;
 };
 
 export default Login;

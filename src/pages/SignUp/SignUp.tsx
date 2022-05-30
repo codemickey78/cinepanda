@@ -1,11 +1,7 @@
-import React from 'react'
+import { AuthForm } from "../../components/index";
 
-type Props = {}
+const SignUp = () => {
+  return <AuthForm authType="register" />;
+};
 
-const SignUp = (props: Props) => {
-  return (
-    <div>SignUp</div>
-  )
-}
-
-export default SignUp
+export default SignUp;

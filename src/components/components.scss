@@ -1,0 +1,90 @@
+.login-main {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/img/bglogin.jpeg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: table;
+  background-repeat: no-repeat;
+  .login-sub {
+    width: 30%;
+    background-color: #fff;
+    border-radius: 20px;
+    height: auto;
+    padding: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    a {
+      text-decoration: none !important;
+    }
+    .login-brief {
+      font-size: 0.8rem;
+      font-family: el;
+    }
+    .loginImg {
+      h6 {
+        font-family: em;
+        font-size: 1.3rem;
+        color: var(--main-dark);
+      }
+      img {
+        width: 50px;
+        margin-right: 2%;
+      }
+    }
+  }
+  .login-form {
+    .login-forgot {
+      margin: 3% 0;
+      font-size: 0.8rem;
+      font-family: "el";
+      a {
+        color: var(--main-dark);
+        text-decoration: none;
+        font-family: em;
+      }
+    }
+    label {
+      font-size: 0.8rem;
+      font-family: "el";
+      margin-bottom: 2%;
+    }
+    input:focus {
+      box-shadow: none;
+    }
+    input {
+      border: 1px solid rgb(157 157 157 / 16%);
+      padding: 0.65rem 0.75rem;
+      border-top-left-radius: 20px;
+      font-size: 0.9rem;
+      font-family: em;
+      border-bottom-left-radius: 20px;
+    }
+    .input-group-text {
+      border: 1px solid rgb(157 157 157 / 16%);
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border-left: 0;
+      background-color: #fff;
+    }
+  }
+  .submit-btn {
+    border: 0;
+    width: 100%;
+    font-family: em;
+  }
+  .social-btn {
+    background-color: transparent;
+    color: var(--main-dark);
+    border: 1px solid #e9e9e9;
+    font-size: 0.9rem;
+    width: 100%;
+    font-family: "em";
+    svg {
+      margin-right: 2%;
+    }
+  }
+}
