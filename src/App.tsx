@@ -1,11 +1,12 @@
-import Navbar from "./components/Navbar/Navbar";
+import { AuthContextProvider } from "./context/AuthContext";
 import AllRoutes from "./routes/AllRoutes";
 const App = () => {
   return (
     <>
       <div className="container-fluid p-0">
-        {/* <Navbar /> */}
-        <AllRoutes />
+        <AuthContextProvider>
+          <AllRoutes />
+        </AuthContextProvider>
       </div>
     </>
   );

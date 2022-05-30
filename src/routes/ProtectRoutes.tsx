@@ -1,11 +1,14 @@
-import React from 'react'
+import { UserAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
-type Props = {}
+const ProtectRoutes = ({ children }: any) => {
+  const { user }: any = UserAuth();
 
-const ProtectRoutes = (props: Props) => {
-  return (
-    <div>ProtectRoutes</div>
-  )
-}
+  if (!user) {
+    // return <Navigate to='/' />;
+  } else {
+    return children;
+  }
+};
 
-export default ProtectRoutes
+export default ProtectRoutes;
