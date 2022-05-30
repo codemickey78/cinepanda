@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: eb;
+  src: url("assets/fonts/Euclid-Circular-Bold.ttf");
+}
+
+@font-face {
+  font-family: er;
+  src: url("assets/fonts/Euclid-Circular-Regular.ttf");
+}
+@font-face {
+  font-family: em;
+  src: url("assets/fonts/Euclid-Circular-Medium.ttf");
+}
+@font-face {
+  font-family: el;
+  src: url("assets/fonts/Euclid-Circular-Light.ttf");
+}
+
+*{
+  font-family: er, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+:root{
+  --main-color: #d00000; 
+  --main-dark: #0c0f0a;
+}
