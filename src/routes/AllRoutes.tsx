@@ -1,10 +1,14 @@
 import {
-  Genres,
+  MovieStars,
   Home,
   Login,
   SignUp,
   Profile,
   ForgotPass,
+  TopRated,
+  Popular,
+  TvShows,
+  Upcoming,
 } from "../pages/index";
 import ProtectRoutes from "./ProtectRoutes";
 import { Route, Routes } from "react-router-dom";
@@ -16,7 +20,11 @@ const AllRoutes = (): any => {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/reset-password" element={<ForgotPass />}></Route>
       <Route path="/register" element={<SignUp />}></Route>
-      <Route path="/genres" element={<Genres />}></Route>
+      <Route path="/stars" element={<MovieStars />}></Route>
+      <Route path="/top-rated" element={<TopRated />}></Route>
+      <Route path="/upcoming" element={<Upcoming />}></Route>
+      <Route path="/popular" element={<Popular />}></Route>
+      <Route path="/tv-shows" element={<TvShows />}></Route>
       <Route
         path="/profile"
         element={

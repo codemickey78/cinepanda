@@ -1,11 +1,11 @@
-import React from "react";
-import MainNavbar from "../../components/Navbar/Navbar";
-type Props = {};
 
-const Home = (props: Props) => {
+import { MainNavbar, HeadPoster } from "../../components/index";
+
+const Home = () => {
   return (
     <>
       <MainNavbar />
+      <HeadPoster />
       <div>Home</div>
     </>
   );
