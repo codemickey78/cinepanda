@@ -37,6 +37,13 @@
     }
   }
   .login-form {
+    .btn:focus {
+      box-shadow: none;
+    }
+    small {
+      font-family: el;
+      font-size: 0.7rem;
+    }
     .login-forgot {
       margin: 3% 0;
       font-size: 0.8rem;

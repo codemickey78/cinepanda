@@ -6,12 +6,21 @@ import { AiOutlineUser } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
 const AuthForm = ({ authType }: any) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [mainAuthType, setMainAuthType] = useState("");
 
+  const onFormSubmit = (data: any) => {
+    console.log(data);
+  };
+
   useEffect(() => {
-    console.log(authType);
     setMainAuthType(authType);
   }, [authType]);
 
@@ -26,7 +35,7 @@ const AuthForm = ({ authType }: any) => {
         </Link>
         <p className="m-0 text-center login-brief"></p>
         <div className="login-form">
-          <form>
+          <form onSubmit={handleSubmit(onFormSubmit)}>
             {mainAuthType === "register" && (
               <div>
                 <Form.Label htmlFor="fullname">Full Name</Form.Label>
@@ -35,21 +44,55 @@ const AuthForm = ({ authType }: any) => {
                     id="fullname"
                     type="text"
                     aria-describedby="fullname"
+                    {...register("Fullname", {
+                      required: {
+                        value: true,
+                        message: "Fullname is required.",
+                      },
+                      minLength: {
+                        value: 5,
+                        message: "Must be at least 5 characters",
+                      },
+                      maxLength: {
+                        value: 70,
+                        message: "Must be 70 characters max",
+                      },
+                    })}
                   />
                   <InputGroup.Text id="fullname">
                     <AiOutlineUser />
                   </InputGroup.Text>
                 </InputGroup>
+                {errors?.Fullname && (
+                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">{errors?.Fullname.message}</small>
+                )}
               </div>
             )}
             <div>
               <Form.Label htmlFor="email">Email</Form.Label>
               <InputGroup>
-                <FormControl id="email" type="email" aria-describedby="email" />
+                <FormControl
+                  id="email"
+                  type="email"
+                  aria-describedby="email"
+                  {...register("Email", {
+                    required: {
+                      value: true,
+                      message: "Email is required",
+                    },
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "Email is incorrect",
+                    },
+                  })}
+                />
                 <InputGroup.Text id="email">
                   <MdAlternateEmail />
                 </InputGroup.Text>
               </InputGroup>
+              {errors?.Email && (
+                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">{errors?.Email.message}</small>
+                )}
             </div>
             {mainAuthType !== "forgot" && (
               <div className="mb-2">
@@ -59,11 +102,24 @@ const AuthForm = ({ authType }: any) => {
                     id="password"
                     type="password"
                     aria-describedby="password"
+                    {...register("Password", {
+                      required: {
+                        value: true,
+                        message: "Password is Required",
+                      },
+                      minLength: {
+                        value: 8,
+                        message: "Must be at least 8 character ",
+                      },
+                    })}
                   />
                   <InputGroup.Text id="password">
                     <MdOutlinePassword />
                   </InputGroup.Text>
                 </InputGroup>
+                {errors?.Password && (
+                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">{errors?.Password.message}</small>
+                )}
               </div>
             )}
             {mainAuthType === "login" && (
