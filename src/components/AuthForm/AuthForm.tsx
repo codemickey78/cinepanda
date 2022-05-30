@@ -4,20 +4,39 @@ import { Form, InputGroup, FormControl, Button } from "react-bootstrap";
 import { MdAlternateEmail, MdOutlinePassword } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { UserAuth } from "../../context/AuthContext";
 
 const AuthForm = ({ authType }: any) => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const [mainAuthType, setMainAuthType] = useState("");
+  const { loginUser, forgotPass, registerUser }: any = UserAuth();
 
-  const onFormSubmit = (data: any) => {
-    console.log(data);
+  const onFormSubmit = async (data: any) => {
+    try {
+      if (authType === "login") {
+        await loginUser(data.Email, data.Password);
+        navigate("/");
+        console.log("logged in");
+      } else if (authType === "register") {
+        const regUser = await registerUser(data.Email, data.Password);
+        navigate("/");
+        console.log("registered!");
+      } else if (authType === "forgot") {
+        await forgotPass(data.Email);
+        navigate("/login");
+        console.log("Check your email for password reset instructions.");
+      }
+    } catch (error: any) {
+      console.log(error.message);
+    }
   };
 
   useEffect(() => {
@@ -64,7 +83,9 @@ const AuthForm = ({ authType }: any) => {
                   </InputGroup.Text>
                 </InputGroup>
                 {errors?.Fullname && (
-                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">{errors?.Fullname.message}</small>
+                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">
+                    {errors?.Fullname.message}
+                  </small>
                 )}
               </div>
             )}
@@ -91,8 +112,10 @@ const AuthForm = ({ authType }: any) => {
                 </InputGroup.Text>
               </InputGroup>
               {errors?.Email && (
-                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">{errors?.Email.message}</small>
-                )}
+                <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">
+                  {errors?.Email.message}
+                </small>
+              )}
             </div>
             {mainAuthType !== "forgot" && (
               <div className="mb-2">
@@ -118,7 +141,9 @@ const AuthForm = ({ authType }: any) => {
                   </InputGroup.Text>
                 </InputGroup>
                 {errors?.Password && (
-                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">{errors?.Password.message}</small>
+                  <small className="d-inline-flex px-2 py-1 text-danger bg-danger mt-2 bg-opacity-10 border-danger border-opacity-10 rounded-2">
+                    {errors?.Password.message}
+                  </small>
                 )}
               </div>
             )}

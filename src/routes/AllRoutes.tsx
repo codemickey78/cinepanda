@@ -11,7 +11,8 @@ import { Route, Routes } from "react-router-dom";
 const AllRoutes = (): any => {
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
+      <Route index element={<Home />}></Route>
+      <Route path="home" element={<Home />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/reset-password" element={<ForgotPass />}></Route>
       <Route path="/register" element={<SignUp />}></Route>
@@ -24,6 +25,7 @@ const AllRoutes = (): any => {
           </ProtectRoutes>
         }
       ></Route>
+      <Route path="*" element={<p>404 not found</p>}></Route>
     </Routes>
   );
 };
