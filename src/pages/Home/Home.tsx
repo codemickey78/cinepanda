@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import MainNavbar from "../../components/Navbar/Navbar";
 type Props = {};
 
 const Home = (props: Props) => {
   return (
     <>
-      <Navbar />
+      <MainNavbar />
       <div>Home</div>
     </>
   );
