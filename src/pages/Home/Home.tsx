@@ -1,12 +1,15 @@
-
-import { MainNavbar, HeadPoster } from "../../components/index";
+import {
+  MainNavbar,
+  HeadPoster,
+  MovieThumbnails,
+} from "../../components/index";
 
 const Home = () => {
   return (
     <>
       <MainNavbar />
       <HeadPoster />
-      <div>Home</div>
+      <MovieThumbnails />
     </>
   );
 };
