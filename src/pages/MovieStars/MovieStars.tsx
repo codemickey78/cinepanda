@@ -1,9 +1,14 @@
 import React from "react";
-
-type Props = {};
+import {
+  MainNavbar
+} from "../../components/index";
 
 const MovieStars = () => {
-  return <div>MovieStars</div>;
+  return (
+    <>
+      <MainNavbar></MainNavbar>
+    </>
+  );
 };
 
 export default MovieStars;

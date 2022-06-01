@@ -1,11 +1,7 @@
-import React from 'react'
+import DefaultCategoryView from '../../layouts/DefaultCategoryViews/DefaultCategoryView';
 
-type Props = {}
-
-const TopRated = (props: Props) => {
-  return (
-    <div>TopRated</div>
-  )
+const TopRated = () => {
+  return <DefaultCategoryView categoryType="Top Rated" />;
 }
 
 export default TopRated

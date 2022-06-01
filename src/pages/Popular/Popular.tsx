@@ -1,11 +1,7 @@
-import React from 'react'
+import DefaultCategoryView from "../../layouts/DefaultCategoryViews/DefaultCategoryView";
 
-type Props = {}
+const Popular = () => {
+  return <DefaultCategoryView categoryType="Popular" />;
+};
 
-const Popular = (props: Props) => {
-  return (
-    <div>Popular</div>
-  )
-}
-
-export default Popular
+export default Popular;

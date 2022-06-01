@@ -1,11 +1,9 @@
-import React from 'react'
+import DefaultCategoryView from '../../layouts/DefaultCategoryViews/DefaultCategoryView';
 
 type Props = {}
 
 const TvShows = (props: Props) => {
-  return (
-    <div>TvShows</div>
-  )
+  return <DefaultCategoryView categoryType="TV Shows" />;
 }
 
 export default TvShows

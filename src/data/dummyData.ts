@@ -12,4 +12,42 @@ const allImgs = [
     m1, m2, m3, m4, m5, m6, m7, m8, m9
 ]
 
-export default allImgs;
+const allGenres = [
+    {
+        name: 'All',
+        slug: 0
+    },
+    {
+        name: 'Action',
+        slug: 10759
+    },
+    {
+        name: 'Sci-Fi',
+        slug: 10765
+    }, {
+        name: 'Drama',
+        slug: 18
+    },
+    {
+        name: 'Crime',
+        slug: 80
+    },
+    {
+        name: 'Comedy',
+        slug: 35
+    },
+    {
+        name: 'Animation',
+        slug: 16
+    },
+    {
+        name: 'Mystery',
+        slug: 9648
+    },
+    {
+        name: 'Documentary',
+        slug: 99
+    }
+]
+
+export { allImgs, allGenres };

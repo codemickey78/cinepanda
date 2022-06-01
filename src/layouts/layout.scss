@@ -1,0 +1,27 @@
+.phead {
+  width: 100%;
+  background-image: url("../assets/img/bglogin.jpeg");
+  background-position: center;
+  background-size: cover;
+  padding: 3%;
+  color: #fff;
+  h5 {
+    font-family: em;
+    font-size: 2rem;
+  }
+  p {
+    color: #f0f0f0;
+  }
+  .btn-primary {
+    background-color: var(--main-color);
+    border: 0;
+    padding: 1rem 2rem;
+  }
+  .phead-over {
+    img {
+      width: 120px;
+      margin: 5%;
+      object-fit: cover;
+    }
+  }
+}

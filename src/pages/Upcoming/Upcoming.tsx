@@ -1,11 +1,7 @@
-import React from 'react'
+import DefaultCategoryView from "../../layouts/DefaultCategoryViews/DefaultCategoryView";
 
-type Props = {}
+const Upcoming = () => {
+  return <DefaultCategoryView categoryType="Upcoming" />;
+};
 
-const Upcoming = (props: Props) => {
-  return (
-    <div>Upcoming</div>
-  )
-}
-
-export default Upcoming
+export default Upcoming;
