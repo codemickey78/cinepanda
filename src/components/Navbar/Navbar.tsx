@@ -84,26 +84,38 @@ const MainNavbar = () => {
                   <BiSearch />
                 </InputGroup.Text>
               </InputGroup>
-              <Dropdown as={ButtonGroup} className="gap-2">
-                <Button>
-                  <div>
-                    <img
-                      src={profileImg}
-                      alt="profile"
-                      width={30}
-                      className="rounded-circle"
-                    />
-                  </div>
-                </Button>
+              {userState === null && (
+                <NavLink to={"/login"}>
+                  <Button className="navlogin-btn rounded-pill default-primary border-0">
+                    Login
+                  </Button>
+                </NavLink>
+              )}
+              {userState !== null && (
+                <Dropdown as={ButtonGroup} className="gap-2">
+                  <Button>
+                    <div>
+                      <img
+                        src={profileImg}
+                        alt="profile"
+                        width={30}
+                        className="rounded-circle"
+                      />
+                    </div>
+                  </Button>
 
-                <Dropdown.Toggle split id="dropdown-split-basic">
-                  <img src={AngleDownSvg} alt="" width={10} />
-                </Dropdown.Toggle>
+                  <Dropdown.Toggle split id="dropdown-split-basic">
+                    <img src={AngleDownSvg} alt="" width={10} />
+                  </Dropdown.Toggle>
 
-                <Dropdown.Menu className="rounded-4">
-                  <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+                  <Dropdown.Menu className="rounded-4">
+                    <Dropdown.Item as={NavLink} to="/profile">
+                      Profile
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              )}
             </div>
           </Navbar.Collapse>
         </Container>
@@ -111,7 +123,6 @@ const MainNavbar = () => {
       {userState?.email && (
         <>
           <div>{JSON.stringify(userState)}</div>
-          <Button onClick={handleLogout}>Logout</Button>
         </>
       )}
     </div>

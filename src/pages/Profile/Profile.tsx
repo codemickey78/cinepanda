@@ -1,11 +1,14 @@
-import React from 'react'
+import { Container } from "react-bootstrap";
+import "../pages.scss";
+import { ProfileHeader, MainNavbar } from "../../components/index";
 
-type Props = {}
-
-const Profile = (props: Props) => {
+const Profile = () => {
   return (
-    <div>Profile</div>
-  )
-}
+    <>
+      <MainNavbar />
+      <ProfileHeader />
+    </>
+  );
+};
 
-export default Profile
+export default Profile;
