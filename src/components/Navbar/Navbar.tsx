@@ -120,11 +120,6 @@ const MainNavbar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {userState?.email && (
-        <>
-          <div>{JSON.stringify(userState)}</div>
-        </>
-      )}
     </div>
   );
 };
